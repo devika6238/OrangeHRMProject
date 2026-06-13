@@ -4,29 +4,11 @@
   <test thread-count="2" parallel="tests" name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.orangehrm.test.LoginPageTest">
+      <class name="com.orangehrm.test.ApiTest">
         <methods>
-          <include name="loadConfig"/>
-          <include name="setup"/>
-          <include name="tearDown"/>
-          <include name="verifyValidLoginTest" invocation-numbers="0"/>
-          <include name="setupPages"/>
+          <include name="verifyGetUserAPI"/>
         </methods>
-      </class> <!-- com.orangehrm.test.LoginPageTest -->
+      </class> <!-- com.orangehrm.test.ApiTest -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
-  <test thread-count="2" parallel="tests" name="EdgeTest(failed)">
-    <parameter name="browser" value="edge"/>
-    <classes>
-      <class name="com.orangehrm.test.LoginPageTest">
-        <methods>
-          <include name="loadConfig"/>
-          <include name="setup"/>
-          <include name="tearDown"/>
-          <include name="verifyValidLoginTest" invocation-numbers="0"/>
-          <include name="setupPages"/>
-        </methods>
-      </class> <!-- com.orangehrm.test.LoginPageTest -->
-    </classes>
-  </test> <!-- EdgeTest(failed) -->
 </suite> <!-- Failed suite [OrangeHRMSuite] -->

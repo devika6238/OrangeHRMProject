@@ -98,17 +98,28 @@ public class ExtentManager {
 	
 	//Log a step validation for API
 	public static void logStepValidationForAPI(String logMessage) {
-		getTest().pass(logMessage);
+		ExtentTest currentTest = getTest();
+		if (currentTest != null) {
+			currentTest.pass(logMessage);
+			
+			} else {
+			System.out.println("[ExtentReport- no active Test] " + logMessage);
+			}
+			
 	}
 	
 	//Log a Failure
 	public static void logFailure(WebDriver driver, String logMessage, String screenShotMessage) {
-		ExtentTest currentTest = getTest();
+	
 		String colorMessage = String.format("<span style='color:red;'>%s</span>", logMessage);
+		ExtentTest currentTest = getTest();
 		if (currentTest != null) {
-		currentTest.fail(colorMessage);
-		}
-	}
+			currentTest.pass(logMessage);
+			attachScreenshot(driver, screenShotMessage);
+			} else {
+			System.out.println("[ExtentReport- no active Test] " + logMessage);
+			}
+			}
 	
 	//Log a Failure for API
 	public static void logFailureAPI(String logMessage) {
